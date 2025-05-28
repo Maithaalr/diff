@@ -113,7 +113,7 @@ if old_file and new_file:
 
            filtered_df = result_df[result_df["اسم العمود"] == selected_col]
            if selected_value != "الكل":
-           filtered_df = filtered_df[filtered_df["القيمة القديمة"] == selected_value]
+                filtered_df = filtered_df[filtered_df["القيمة القديمة"] == selected_value]
 
            st.dataframe(filtered_df, use_container_width=True)
            st.success(f"عدد الصفوف المطابقة: {len(filtered_df)}")
