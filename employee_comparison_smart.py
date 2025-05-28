@@ -106,12 +106,12 @@ if old_file and new_file:
     with tab4:
         st.subheader(" فلترة التغييرات حسب العمود والقيمة")
 
-        if not result_df.empty:
-           selected_col = st.selectbox("اختاري العمود:", sorted(result_df["اسم العمود"].unique()))
-           filtered_values = result_df[result_df["اسم العمود"] == selected_col]["القيمة القديمة"].dropna().unique().tolist()
+        if not final_df.empty:
+           selected_col = st.selectbox("اختاري العمود:", sorted(final_df["اسم العمود"].unique()))
+           filtered_values = final_df[final_df["اسم العمود"] == selected_col]["القيمة القديمة"].dropna().unique().tolist()
            selected_value = st.selectbox("اختاري القيمة القديمة:", ["الكل"] + sorted(filtered_values))
 
-           filtered_df = result_df[result_df["اسم العمود"] == selected_col]
+           filtered_df = final_df[final_df["اسم العمود"] == selected_col]
            if selected_value != "الكل":
                 filtered_df = filtered_df[filtered_df["القيمة القديمة"] == selected_value]
 
