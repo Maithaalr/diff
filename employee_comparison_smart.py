@@ -73,7 +73,7 @@ if old_file and new_file:
             final_df = pd.concat(differences, ignore_index=True)
 
             st.subheader(" اختلافات في البيانات:")
-            st.dataframe(final_df.style.apply(color_rows, axis=1), use_container_width=True)
+            st.dataframe(final_df, use_container_width=True)
 
             st.markdown(f"عدد الموظفين اللتي تغيرت بياناتهم: `{len(changed_employee_ids)}`")
 
