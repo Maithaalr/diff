@@ -54,6 +54,8 @@ if old_file and new_file:
         if col_old in merged.columns and col_new in merged.columns:
             both_mask = merged["_merge"] == "both"
             compare = merged.loc[both_mask]
+            compare[col_old] = compare[col_old].astype(str).str[3:].str.strip()
+            compare[col_new] = compare[col_new].astype(str).str.strip()
             diff_mask = compare[col_old] != compare[col_new]
             if diff_mask.any():
                 diff_rows = compare[diff_mask][[id_column, col_old, col_new]].copy()
