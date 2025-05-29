@@ -122,5 +122,13 @@ if old_file and new_file:
 
            st.dataframe(filtered_df, use_container_width=True)
            st.success(f"عدد الصفوف المطابقة: {len(filtered_df)}")
+
+           st.download_button(
+               label="تحميل النتائج  CSV",
+               data=filtered_df.to_csv(index=False).encode("utf-8"),
+               file_name="filtered_changes.csv",
+               mime="text/csv"
+           )
+
         else:
             st.info("لا توجد تغييرات لعرضها.")
