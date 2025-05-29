@@ -55,9 +55,9 @@ if old_file and new_file:
             both_mask = merged["_merge"] == "both"
             compare = merged.loc[both_mask]
             if col == "الوحدة التنظيمية":
-            # إزالة أول ثلاث حروف من القيمة القديمة فقط للوحدة التنظيمية
-                compare[col_old] = compare[col_old].astype(str).str[3:].str.strip()
-                compare[col_new] = compare[col_new].astype(str).str.strip()
+            # إزالة أول ثلاث حروف من القيمة الجديدة فقط للوحدة التنظيمية
+                compare[col_old] = compare[col_old].astype(str).str.strip()
+                compare[col_new] = compare[col_new].astype(str).str[3:].str.strip()
             diff_mask = compare[col_old] != compare[col_new]
 
             if diff_mask.any():
