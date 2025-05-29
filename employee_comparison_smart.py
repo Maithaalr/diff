@@ -123,7 +123,7 @@ if old_file and new_file:
            st.dataframe(filtered_df, use_container_width=True)
            st.success(f"عدد الصفوف المطابقة: {len(filtered_df)}")
 
-           csv_data_filt = final_df.to_csv(index=False).encode("utf-8-sig")
+           csv_data_filt = filtered_df.to_csv(index=False).encode("utf-8-sig")
            st.download_button(" تحميل النتائج", data=csv_data_filt, file_name="التغير_لعامود_معين.csv", mime="text/csv")
 
         else:
